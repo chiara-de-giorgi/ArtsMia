@@ -38,6 +38,18 @@ class View(ft.UserControl):
         self._page.controls.append(ft.Row([self._btnAnalizzaOggetti, self._txtIdOggetto, self._btnCompConnessa],
                                           alignment=ft.MainAxisAlignment.CENTER))
 
+        self._ddLunghezza = ft.Dropdown(label="Lunghezza", disabled=True,color="orange", border_color="orange", width=230 )
+        self._btnCercaOggetti = ft.ElevatedButton(text="Cerca Oggetti", on_click=self._controller.handleCercaOggetti,
+                                                  bgcolor="orange",
+                                                  color="white",
+                                                  width=200)
+        row2 = ft.Row([
+            ft.Container(None, width=250),
+            ft.Container(self._ddLunghezza, width=250),
+            ft.Container(self._btnCercaOggetti, width=250)],
+            alignment=ft.MainAxisAlignment.CENTER)
+        self._page.controls.append(row2)
+
         # List View where the reply is printed
         self.txt_result = ft.ListView(expand=1, spacing=10, padding=20, auto_scroll=True)
         self._page.controls.append(self.txt_result)
